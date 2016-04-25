@@ -1,0 +1,22 @@
+<div class="container">
+		<p>
+		  <strong>Fotografía:</strong>
+		  <%= image_tag(@pin.photo, :style => 'width:300px') %>
+		</p>
+
+		<p>
+		  <strong>Nombre:</strong>
+		  <%= @pin.name %>
+		</p>
+
+		<p>
+		  <strong>Descripcción:</strong>
+		  <%= @pin.description %>
+		</p>
+		<% if user_signed_in? %>
+		<%= link_to 'Editar', edit_pin_path(@pin), :class =>"btn btn-warning" %> |
+		<% end %>
+		<%= link_to 'Atras', pins_path, :class =>"btn btn-warning" %>
+		<%= link_to "Más Pins",pinsof_path(@pin.user.id) %>
+
+</div>
